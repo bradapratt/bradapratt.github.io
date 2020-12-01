@@ -4,11 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brad's Portfolio</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vacation Destinations WishList</title>
+
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1>Hellow world</h1>
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1>Vacation Destinations WishList</h1>
+            <p>Found exciting places to visit on on your next vacation? Use the form below to add them to
+                your wishlist</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <form id="newDestinationForm">
+                    <div class="form-group">
+                        <label for="destination">Destination Name</label>
+                        <input type="text" class="form-control" id="dest" aria-describedby="destination"
+                            placeholder="Enter the name of your desired destination:">
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" class="form-control" id="loc" placeholder="Where is it located?">
+                    </div>
+                    <div class="form-group">
+                        <label for="photo">Photo</label>
+                        <input type="url" class="form-control" id="url" placeholder="Enter a URL for your image.">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="descriptionTextArea" rows="3"
+                            placeholder="Where is it located?"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+
+            <div class="col-md-9">
+                <h1 id="title">
+                    My WishList
+                </h1>
+                <div id="wishlist_container"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Link to the JS file -->
+    <script src="./script.js"></script>
 </body>
 
 </html>

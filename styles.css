@@ -1,0 +1,16 @@
+#title {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#wishlist_container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.destinationCard {
+    width: 15rem;
+    height: fit-content;
+    margin: 20px;
+}
