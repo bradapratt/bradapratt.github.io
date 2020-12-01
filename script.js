@@ -1,50 +1,41 @@
-// Listen to the form being submitted
-document
-    .querySelector("#newDestinationForm")
-    .addEventListener("submit", submitForm);
+let newDestination = document.getElementById("newDestinationForm");
 
-function submitForm(event) {
+newDestination.onsubmit = (event) => {
     event.preventDefault(); // stop the form from refreshing the page
 
-    var name = event.target.elements["destination"].value;
-    var location = event.target.elements["location"].value;
-    var url = event.target.elements["photo"].value;
-    var description = event.target.elements["description"].value;
+    let name = event.target.destination.value;
+    let loc = event.target.location.value;
+    let url = event.target.photo.value;
+    let description = event.target.description.value;
 
-    // Use the form elements to create a bootstrap card with destination details
-    document
-        .querySelector("#wishlist_container")
-    document
-        .createElement("div")
-        .setAttribute("class", "card destinationCard");
-
-    document
-        .createElement("img")
-        .setAttribute("class", "card-img-top")
-        .setAttribute("alt", name)
-        .setAttribute("src", url);
-
-    document
-        .createElement("div")
-        .setAttribute("class", "card-body");
-
-    document
-        .createElement("h5")
-        .setAttribute("class", "card-title")
-        .innerText = name;
-
-    document
-        .createElement("h6")
-        .setAttribute("class", "card-subtitle mb-2 text-muted")
-        .innerText = location;
+    wishlist_container.innerHTML +=
+        `<li class = "card destinationCard">
+            <img src = "${url}"></img>
+            <h1>${name}</h1>
+            <h2>${loc}</h2>
+            <button id="delete_btn">Delete</button>
+            <button id="edit_btn">Edit</button>
+        </li>`;
 
     // Reset the form elements values for a new entry
-    reset(event.target);
+    newDestination.reset();
 }
 
-function reset(form) {
-    // Go through all the form values and reset their values
-    for (var i = 0; i < form.length; i++) {
-        form.elements[i].value = "";
+onclick = (event) => {
+    if (event.target.matches("button#delete_btn")) {
+        event.target.parentNode.remove();
+    } else if (event.target.matches("button#edit_btn")) {
+        let editDest = prompt("Enter new destination name: ");
+        let editLoc = prompt("Enter the new location: ");
+        let editURL = prompt("Enter new photo url: ");
+
+        event.target.parentNode.innerHTML =
+            `<li class = "card destinationCard">
+            <img src = "${editURL}"></img>
+            <h1>${editDest}</h1>
+            <h2>${editLoc}</h2>
+            <button id="delete_btn">Delete</button>
+            <button id="edit_btn">Edit</button>
+        </li>`;
     }
 }

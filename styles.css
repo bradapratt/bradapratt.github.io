@@ -6,11 +6,11 @@
 #wishlist_container {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .destinationCard {
-    width: 15rem;
+    width: 400px;
     height: fit-content;
     margin: 20px;
 }
